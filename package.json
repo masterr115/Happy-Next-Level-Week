@@ -1,0 +1,30 @@
+{
+    "name": "Happy",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "start": "nodemon src/server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Masterr115/Happy-Next-Level-Week.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Masterr115/Happy-Next-Level-Week/issues"
+    },
+    "homepage": "https://github.com/Masterr115/Happy-Next-Level-Week#readme",
+    "dependencies": {
+        "@handlebars/allow-prototype-access": "^1.0.3",
+        "colors": "^1.4.0",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "express-group-router": "^2.1.0",
+        "express-handlebars": "^5.1.0",
+        "hbs": "^4.1.1",
+        "nodemon": "^2.0.5"
+    }
+}
