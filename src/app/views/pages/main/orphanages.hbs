@@ -19,9 +19,9 @@
             <span hidden data-id="{{this.id}}" data-name="{{this.name}}" data-lat="{{this.lat}}" data-lng="{{lng}}"></span>
         {{/each}}
     </div>
-
-    <a href="/orphanage/new" class="create-orphanage" title="Cadastre um orfanato">
-        <img src="images/plus.svg" alt="Crie orfanatos">
-    </a>
-
+    {{#if user}}
+        <a href="/orphanage/new" class="create-orphanage" title="Cadastre um orfanato">
+            <img src="images/plus.svg" alt="Crie orfanatos">
+        </a>
+    {{/if}}
 </div>

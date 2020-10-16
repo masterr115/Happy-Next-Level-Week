@@ -19,12 +19,16 @@
     "homepage": "https://github.com/Masterr115/Happy-Next-Level-Week#readme",
     "dependencies": {
         "@handlebars/allow-prototype-access": "^1.0.3",
+        "body-parser": "^1.19.0",
         "colors": "^1.4.0",
+        "cookie-parser": "^1.4.5",
         "dotenv": "^8.2.0",
         "express": "^4.17.1",
         "express-group-router": "^2.1.0",
         "express-handlebars": "^5.1.0",
+        "express-session": "^1.17.1",
         "hbs": "^4.1.1",
-        "nodemon": "^2.0.5"
+        "nodemon": "^2.0.5",
+        "sqlite-async": "^1.1.0"
     }
 }

@@ -1,3 +1,14 @@
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/0bd120f460.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/scripts/alertify.min.js"></script>
+
+<script>
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+</script>
+
 {{#if onOrphanages}}
 
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
@@ -13,4 +24,49 @@
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
   <script src="/scripts/page-create-orphanage.js"></script>
 
+  <script>
+      async function createOrphanage() {
+
+          const images = new Array();
+
+          const imagesHtml = document.querySelectorAll('#images1')
+
+          for (let i = 0; i < imagesHtml.length; i++) {
+            images.push(imagesHtml[i].value);
+          }
+
+          const response = await axios.post('/orphanage/new', {
+              lat: document.querySelector('[name=lat]').value,
+              lng: document.querySelector('[name=lng]').value,
+              name: $('#name').val(),
+              about: $('#about').val(),
+              whatsapp: $('#whatsapp').val(),
+              images,
+              instructions: $('#instructions').val(),
+              opening_hours: $('#opening_hours').val(),
+              open_on_weekends: document.querySelector('[name=open_on_weekends]').value,
+          })
+
+          if (response.data.error){
+
+            alertify.set('notifier', 'position', 'top-right');
+            alertify.error(response.data.erromessage);
+
+          } else{
+
+            alertify.set('notifier', 'position', 'top-right');
+            alertify.success(response.data.message);
+
+            await sleep(1000)
+            window.location.href = '/orphanages'
+          }
+          
+
+      }
+  </script>
+
+{{else if onLogin}}
+
+  <script src="/scripts/page-login.js"></script>
+    
 {{/if}}

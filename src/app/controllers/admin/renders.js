@@ -1,5 +1,6 @@
 module.exports = {
     async renderNewOrphanage(req, res) {
-        res.render('pages/admin/NewOrphanage', { onCreateOrphanage: true })
+        const user = req.session.user
+        res.render('pages/admin/NewOrphanage', { onCreateOrphanage: true, user })
     }
 }

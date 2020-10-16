@@ -5,6 +5,11 @@
         <header>
             <img id='logo' class="animate-up" src="images/logo.svg" alt="Logo">
             <div class="location animate-up">
+                {{#if user}}
+                    <a href="#">Olá, {{GetName user}}</a>   
+                {{else}}
+                    <a href="/login">Login</a> 
+                {{/if}}
                 <strong>Rio do Sul</strong>
                 <p>Santa Catarina</p>
             </div>
